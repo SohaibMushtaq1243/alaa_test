@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "554914863891",
+    "project_id": "crudtest-3fae6",
+    "storage_bucket": "crudtest-3fae6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554914863891:android:8648e549d04d670077d8e6",
+        "android_client_info": {
+          "package_name": "com.aala_solution_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_b8qAdytkdAs24tB_XS7o58dFWeV_yUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
