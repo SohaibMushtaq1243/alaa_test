@@ -10,7 +10,9 @@ export const userSlice = createSlice({
         reset: (state) => initialState,
         userlogin:(state,action)=>{
             console.log("entered", action.payload)
-            state.userData.email = action.payload;
+            state.userData = {
+                email:action.payload};
+            console.log(state)
         }
     }
 });
