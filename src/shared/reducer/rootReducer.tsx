@@ -1,6 +1,7 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 const initialState: any = {
-    userData:{email:""}
+    userData:{email:""},
+    darkmode:false
 };
 
 export const userSlice = createSlice({
@@ -9,16 +10,18 @@ export const userSlice = createSlice({
     reducers: {
         reset: (state) => initialState,
         userlogin:(state,action)=>{
-            console.log("entered", action.payload)
             state.userData = {
                 email:action.payload};
-            console.log(state)
+        },
+        setMode:(state,action)=>{
+            state.darkmode = action.payload;
         }
     }
 });
 export const {
     reset,
-    userlogin
+    userlogin,
+    setMode
 } = userSlice.actions;
 
 export default userSlice.reducer;
