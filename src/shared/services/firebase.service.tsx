@@ -64,9 +64,12 @@ export const initializaData=async(email:any)=>{
   data[email]= []
   return await database().ref('/user').set(data);
 }
-export const getData = async (email: string) => {
+export const getData = async (userEmail: string) => {
+  console.log(userEmail.replace('.',''))
+  const url = "/user/"+userEmail.replace('.','');
+  console.log(url)
   return await database()
-    .ref("/user/"+email.replace('.',''))
+    .ref(url)
     .once("value")
     .then((snapshot) => {
       console.log("User data-: ",snapshot.val());
@@ -80,20 +83,38 @@ export const setData = (data: any) => {
     console.log(data.newdata)
     console.log("list",data.previous)
     console.log("email",data.email)
-    let obj = {};
+    
+  const url = "/user";
+  console.log("set url -----------------------",url)
+    let obj :any={};
     obj[data.email.replace('.','')] = [data.newdata,...data.previous]
+    console.log("data ----",obj)
     database()
-      .ref("/user")
+      .ref(url)
       .update(obj);
   } catch (error) {
     console.error("Error setting user data:", error);
   }
 };
+export  const UpateList=(email:string,list:any)=>{
+  try {
+    
+  const url = "/user";
+    let obj :any={};
+    obj[email.replace('.','')] = list
+    console.log("data ----",obj)
+    database()
+      .ref(url)
+      .update(obj);
+  } catch (error) {
+    console.error("Error setting user data:", error);
+  }
+}
 export const geref=(email:string)=>{
   try {
     console.log(email);
     let data:any;
-    data = [{name:""},{name:""},{name:""},{name:""}]
+    data = [{mesage:"New Account"}]
     const route = "/user/"+email.replace('.','');
     console.log("route ----------",route)
     database()

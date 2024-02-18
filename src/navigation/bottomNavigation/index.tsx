@@ -17,7 +17,9 @@ export default function MyTabs() {
         tabBarIcon: ({ color }) => (
           <MaterialCommunityIcons name="home" color={color} size={26} />
         ),
+        
       }}
+
       />
       <Tab.Screen 
       name="THEME" 
